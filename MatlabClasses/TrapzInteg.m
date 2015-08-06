@@ -7,5 +7,6 @@ function x = TrapzInteg(dx,dx0,x0,dt)
 %%
 
 x = 0.5 * ( dx(:) + dx0(:) ) * dt + x0(:);      % Calculate the integration
+x = x(:)';
 %dx0 = dx(:);
 %end  %function

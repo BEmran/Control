@@ -4,10 +4,8 @@ clc
 dt = 0.1;
 time = 0:dt:30;
 inc = 0.1;
-phi = -1*pi : inc : 1*pi;
-vel = -0.1   : inc : 0.1  ;
-phi = pi-1;
-vel = 0.5 ;
+phi = -2*pi : inc : 2*pi;
+vel = -10   : inc : 10  ;
 [s1,s2] = meshgrid(phi,vel);
 l = length(s1(:));
 L = length(time);
@@ -22,7 +20,7 @@ hold on;
 c = [0.8, 0.8, 0.8 ;...
     0.4, 0.4, 0.4];
 
-for j = 1%floor(rand(1,10)*l)
+for j = floor(rand(1,10)*l)
     X(1,:) = [s1(j),s2(j)];
     plot(X(1,1),X(1,2),'*r')
     for i = 2 : length(time)
@@ -37,8 +35,8 @@ for j = 1%floor(rand(1,10)*l)
         %pause(0.1);
     end
     plot(X(end,1),X(end,2),'b*')
-    plot (X(:,1),X(:,2),'linewidth',2)
-    quiver(X(1:end-1,1),X(1:end-1,2),Xdot(2:end,1),Xdot(2:end,2),'linewidth',2);
+    plot (X(:,1),X(:,2),linewidth',2)
+    quiver(X(1:end-1,1),X(1:end-1,2),Xdot(2:end,1),Xdot(2:end,2));
     pause(0.2);
 end
 hold off;
